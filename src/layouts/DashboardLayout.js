@@ -5,13 +5,13 @@ import { Link, Outlet } from "react-router-dom";
 const DashboardLayout = () => {
   const menu = (
     <>
-      <li>
+      <li className="bg-purple-400 rounded-md text-white font-medium">
         <Link to="/dashboard">Dashboard</Link>
       </li>
-      <li>
+      <li className="bg-purple-400 rounded-md text-white font-medium">
         <Link to="/dashboard/blogs-lit">Blogs List</Link>
       </li>
-      <li>
+      <li className="bg-purple-400 rounded-md text-white font-medium">
         <Link to="/dashboard/add-blogs">Add Blogs</Link>
       </li>
     </>
@@ -33,7 +33,7 @@ const DashboardLayout = () => {
         </div>
         <div className="drawer-side ">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 bg-base-200 ">
+          <ul className="menu p-4 gap-4 w-80 bg-base-200 ">
             {/* <!-- Sidebar content here --> */}
             {menu}
           </ul>
