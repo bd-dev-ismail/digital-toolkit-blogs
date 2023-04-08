@@ -12,7 +12,17 @@ const AddBlog = () => {
     formState: { errors },
   } = useForm();
   const handleAddBlog = (data) => {
-    console.log(data);
+   
+    const blogData = {
+      blogBanner: data.blogBanner,
+      blogDesc: data.blogDesc,
+      blogTitle: data.blogTitle,
+      descImage: data.descImage,
+      descTitle: data.descTitle,
+      tag: data.tag,
+      date: startDate,
+    };
+     console.log(blogData);
   };
   return (
     <div>
