@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Loader from "../../Loader/Loader";
 import ReactDatePicker from "react-datepicker";
+import { useDispatch } from "react-redux";
+import { addBlogsData } from "../../../redux/thunk/blogs/addBlogsData";
 
 const AddBlog = () => {
   const [loading, setLoading] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
+
   const handleAddBlog = (data) => {
-   
     const blogData = {
       blogBanner: data.blogBanner,
       blogDesc: data.blogDesc,
@@ -22,11 +26,13 @@ const AddBlog = () => {
       tag: data.tag,
       date: startDate,
     };
-     console.log(blogData);
+    console.log(blogData);
+    dispatch(addBlogsData(blogData));
+    reset();
   };
   return (
     <div>
-      <section className="max-w-4xl lg:w-[80rem]  p-6 mx-auto bg-purple-400 rounded-md shadow-md dark:bg-gray-800 my-10 lg:mt-[5rem]">
+      <section className="max-w-4xl    p-6 mx-auto bg-purple-400 rounded-md shadow-md dark:bg-gray-800 my-10 lg:mt-[5rem]">
         <h1 className="text-xl font-bold text-white capitalize dark:text-white">
           Add Blogs
         </h1>
